@@ -13,37 +13,48 @@
 ## 💡 Knowledge acquired (conhecimentos adquiridos)
 
 - During this project, I learned:
-  - Django, beautifulSoup, celery, rabbit, bootstrap, javascript, jquery, ajax;
-  - to be written;
-  - to be written; and
-  - to be written.
+  - Integrate in a single project: django, beautifulsoup, celery, rabbitmq, bootstrap, javascript, css, jquery, and ajax;
+  - Use Django with Bootstrap to create an intuitive user interface;
+  - Use BeautifulSoup to scrape and integrate its results to the Django's Models Database;
+  - Use RabbitMQ and Celery to run assincronous tasks: associating these technologies with BeautifulSoup is possible to scrap multiples e-commerces while user is directed from main page to result page;
+  - Use ajax to render data from the database when user click in a loading button, without need to refresh the whole page; and
+  - Use javascript to animate a loading bar, while the requested data by the user is scraped and saved in the database. After the loading, the user is automatically redirected to the result page.
 
 ---
 
 ## 🚀 How to execute this project (como executar este projeto)
 
  - To run the code it is recommended to use an IDE, such as Pycharm;
-  - Just clone this project, and open on your IDE.
+  - Just clone this project, and open it on your IDE.
  
- - Before start anything, it is recommended to run the following commands on your IDE terminal,
+ - Before starting anything, it is recommended to run the following commands on your IDE terminal,
   - on info folder:
-    - pip install -r requirements.txt (to install required packages)
-    - py manage.py migrate core zero (to resert the database)
-    - py manage.py makemigrations
-    - py manage.py migrate
+    - pip install -r requirements.txt (to install required packages);
+    - py manage.py migrate core zero (to reset the database);
+    - py manage.py makemigrations; and
+    - py manage.py migrate.
 
  - Then, if you want to run the project without using Celery and RabbitMQ, just do the following:
   - on apps/core/views.py:
       - remove the ".delay" from the code; then
-  - on your IDE terminal, on info folder, run the django's server by the command:py manage.py runserver
+  - on your IDE terminal, on info folder, run the Django's server by the command: py manage.py runserver
 
- - However, if for a better performance, scrapping thousands of results, it recommended to use RabbitMQ and Celery. To do so:
-  - Start RabbitMQ Service (for more information about how to install and work with RabbitMQ Service, check the following link: [Learn Django - Celery](https://www.youtube.com/playlist?list=PLOLrQ9Pn6caz-6WpcBYxV84g9gwptoN20))
-  - on your IDE terminal, on info folder, run the django's server by the command:
-      - py manage.py runserver
-  - on a new session of your IDE terminal, still on info folder, run the Celery workers bu the command:
-      - celery -A tasks worker -l info --pool=solo --concurrency=10 -n roseworker.%h (for more information about how to install and work with RabbitMQ Service, check the following link: [Learn Django - Celery](https://www.youtube.com/playlist?list=PLOLrQ9Pn6caz-6WpcBYxV84g9gwptoN20)). Note: "roseworker" is the name of the worker, you may change it if you want).
+ - However, if for better performance, scrapping thousands of results, it recommended to use RabbitMQ and Celery. To do so:
+  - Start RabbitMQ Service (for more information about how to install and work with RabbitMQ Service, check the following link:
+      - [Learn Django - Celery](https://www.youtube.com/playlist?list=PLOLrQ9Pn6caz-6WpcBYxV84g9gwptoN20)
+  - on your IDE terminal, on info folder, run the Django's server by the command:
+      - py manage.py runserver.
+  - on a new session of your IDE terminal, still, on info folder, run the Celery workers by the command:
+      - celery -A tasks worker -l info --pool=solo --concurrency=10 -n roseworker.%h (for more information about how to install and work with RabbitMQ Service, check the following link:
+        - [Learn Django - Celery](https://www.youtube.com/playlist?list=PLOLrQ9Pn6caz-6WpcBYxV84g9gwptoN20)
+      - Note: "roseworker" is the name of the worker, you may change it if you want).
   
+ - A final important note: the current project is configured to show 16 results each time on result.html. It is possible to rise and reduce this value. To do so, just:
+  - On result.js:
+	- change: let visible = 16 >>> for "another number; and
+	- change: visible += 16 >>> for "another number".
+  - On apps/core/view.py:
+	- change: lower = upper - 16 >>> for "another number:
 
 ### 🎲 Requirements (requisitos)
 
@@ -78,6 +89,8 @@ To run the code, it is recommended to install the following Python Packaged:
 - urllib3==1.26.4
 - vine==5.0.0
 - wcwidth==0.2.5
+
+These packages are basically django, beautifulsoup, celery, django-celery-results, and django-celery-beat.
 
 #### Running the codes (rodando os códigos)
 
