@@ -1,0 +1,44 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+    <div class="container pb-3" id="mainContainer">
+        <div class="row">
+            <div class="col-sm-12 text-dark text-left my-3">
+                <h6 class="product_searched">Product searched: {{ searched_item }}</h6>
+                <h6>How many products we found: {{ amount_of_products }}</h6>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12 pb-3">
+                <div class="row" id="posts-box"></div>
+
+                <div class="row">
+                    <div class="col align-self-center text-center" id="loading-box">
+                        <div class="col-sm-12 text-dark text-center">
+                            <button href="#" class="btn btn-dark" id="load-btn">Loading more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="bg-dark p-4">
+        <div class="row">
+            <div class="col-sm-12 text-light text-center">
+                <p class="mb-0">Developed by Felipe Rosa</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
+{% block js_block %}
+<script src="{% static 'js/result.js' %}"></script>
+{% endblock %}

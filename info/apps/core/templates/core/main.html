@@ -1,0 +1,58 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- carousel and search menu-->
+<section>
+    <div class="container">
+        <div class="parent-div d-flex align-items-center justify-content-center position-relative"
+             style="width: 100%; height: 449px;">
+            <div class="container-fluid p-0" style="width: auto">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://source.unsplash.com/rymh7EZPqRs/1280x450" class="height:400px;" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="width: 100%; position: absolute">
+                <div class="col align-self-center text-center">
+                    <div class="col-lg-12">
+                        <form class="row" action="." method="POST">
+                            {% csrf_token %}
+                            <div class="row col-lg-11 col-md-10 col-sm-9">
+                                <input type="text" class="form-control search-slt" name="search"
+                                       placeholder="What product are you looking for?">
+                            </div>
+                            <div class="row col-lg-1 col-md-2 col-sm-3">
+                                <button oninput="carregandoPesquisa" type="submit" class="btn btn-dark wrn-btn">Click to
+                                    search
+                                </button>
+                            </div>
+                        </form>
+                        {% if alert %}
+                        <div class="row" style="width: 100%; color: red">
+                            <div class="alert alert-danger" role="alert">{{ alert }}</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container-fluid bg-dark p-4">
+        <div class="row">
+            <div class="col-sm-12 text-light text-center">
+                <p class="mb-0">Developed by Felipe Rosa</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
+

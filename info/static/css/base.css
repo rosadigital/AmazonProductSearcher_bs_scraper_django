@@ -1,0 +1,12 @@
+.not-visible{
+  display: none;
+}
+input {
+   text-align: left;
+}
+td {
+  text-align: center;
+}
+th {
+  text-align: center;
+}

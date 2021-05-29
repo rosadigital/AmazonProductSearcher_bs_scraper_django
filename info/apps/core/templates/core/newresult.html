@@ -1,0 +1,18 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href='{% static "css/base.css" %}'>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Base</title>
+</head>
+<body>
+<form action="." method="POST">
+     {% csrf_token %}
+        <input name="search" type="text" placeholder="Type your text">
+        <input oninput="carregandoPesquisa" type="submit" value="Search">
+</form>
+<hr>
+</body>
+</html>
